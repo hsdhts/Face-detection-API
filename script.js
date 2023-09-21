@@ -34,7 +34,7 @@ async function detect() {
                 
 
             
-    ctx.clearRect(0, 0, width, height);
+     ctx.clearRect(0, 0, width, height);
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
     faceapi.draw.drawDetections(canvas, resizedDetections);
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
@@ -48,7 +48,7 @@ async function detect() {
           `${Math.round(age,0)} Tahun`,
           `${gender} ${Math.round(genderProbability)}`
         ],
-        result.detection.box.buttomRight
+        result.detection.box.bottomRight
         ).draw(canvas);
     });
 }
@@ -57,5 +57,5 @@ async function detect() {
 video.addEventListener('play', () => {
     faceapi.matchDimensions(canvas, displaySize);
 
-    setInterval(detect, 100);
+    setInterval(detect,100);
 });
